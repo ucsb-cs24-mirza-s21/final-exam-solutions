@@ -1,3 +1,5 @@
+// Credits: Code based on solution implemented by Zach Han
+// Test cases added by Justin Kasowski
 #include <iostream>
 #include <queue>
 #include <list>
