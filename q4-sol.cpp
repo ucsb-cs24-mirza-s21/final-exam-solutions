@@ -1,5 +1,6 @@
 // Credits: Code based on solution implemented by Zach Han
 // Test cases added by Justin Kasowski
+// Additional test cases and comments added by Diba Mirza and Zach Han
 #include <iostream>
 #include <queue>
 #include <list>
@@ -81,79 +82,79 @@ int main() {
     sQ.push(3);
     cout<<"Push 3:"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 3, "<<sQ.front()<<endl;
+    cout<<" front: 3, "<<sQ.front()<<endl; // nums: 3
     cout<<"   min: 3, "<<sQ.min()<<endl; // smallest: 3
     cout<<"   max: 3, "<<sQ.max()<<endl; // largest: 3
    
     sQ.push(7);
     cout<<"Push 7"<<endl;
      cout<<" Expected, Actual"<<endl;
-    cout<<" front: 3, "<<sQ.front()<<endl;
+    cout<<" front: 3, "<<sQ.front()<<endl;// nums: 3 7
     cout<<"   min: 3, "<<sQ.min()<<endl; // smallest: 3 7
     cout<<"   max: 7, "<<sQ.max()<<endl; // largest: 7
     sQ.push(2);
     cout<<"Push 2"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 3, "<<sQ.front()<<endl;
+    cout<<" front: 3, "<<sQ.front()<<endl;// nums: 3 7 2
     cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2
     cout<<"   max: 7, "<<sQ.max()<<endl; // largest: 7 2
     sQ.push(9);
     cout<<"Push 9"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<"front: 3, "<<sQ.front()<<endl;;
+    cout<<"front: 3, "<<sQ.front()<<endl;;// nums: 3 7 2 9
     cout<<"  min: 2, "<<sQ.min()<<endl; // smallest: 2 9
     cout<<"  max: 9, "<<sQ.max()<<endl; // largest: 9
     sQ.push(8);
     cout<<"Push 8"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 3, "<<sQ.front()<<endl;
+    cout<<" front: 3, "<<sQ.front()<<endl;// nums 3 7 2 9 8
     cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2 8
     cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8
     sQ.push(4);
     cout<<"Push 4"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 3, "<<sQ.front()<<endl;
+    cout<<" front: 3, "<<sQ.front()<<endl;// nums: 3 7 2 9 8 4
     cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2 4
     cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8 4
 
     cout<<endl<<"Start popping"<<endl<<endl;
     sQ.pop();
-    cout<<"Popped 3"<<endl;
+    cout<<"Popped 3"<<endl;  
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 7, "<<sQ.front()<<endl;
-    cout<<"   min: 2, "<<sQ.min()<<endl;
-    cout<<"   max: 9, "<<sQ.max()<<endl;
+    cout<<" front: 7, "<<sQ.front()<<endl;// nums:  7 2 9 8 4
+    cout<<"   min: 2, "<<sQ.min()<<endl;  // smallest: 2 4
+    cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8 4
     sQ.pop();
     cout<<"Popped 7"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 2, "<<sQ.front()<<endl;
-    cout<<"   min: 2, "<<sQ.min()<<endl;
-    cout<<"   max: 9, "<<sQ.max()<<endl;
+    cout<<" front: 2, "<<sQ.front()<<endl; // nums:  2 9 8 4
+    cout<<"   min: 2, "<<sQ.min()<<endl;  // smallest: 2 4
+    cout<<"   max: 9, "<<sQ.max()<<endl;  // largest: 9 8 4
     sQ.pop();
     cout<<"Popped 2"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 9, "<<sQ.front()<<endl;
-    cout<<"   min: 4, "<<sQ.min()<<endl;
-    cout<<"   max: 9, "<<sQ.max()<<endl;
+    cout<<" front: 9, "<<sQ.front()<<endl; // nums:  9 8 4
+    cout<<"   min: 4, "<<sQ.min()<<endl; // smallest: 4
+    cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8 4
     sQ.pop();
     cout<<"Popped 9"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 8, "<<sQ.front()<<endl;
-    cout<<"   min: 4, "<<sQ.min()<<endl;
-    cout<<"   max: 8, "<<sQ.max()<<endl;
+    cout<<" front: 8, "<<sQ.front()<<endl; // nums:  8 4
+    cout<<"   min: 4, "<<sQ.min()<<endl;   // smallest: 4
+    cout<<"   max: 8, "<<sQ.max()<<endl;   // largest: 8 4
     cout<<"Print rest of the queue: ";
     sQ.push(3);
     cout<<"Pushed 3"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 8, "<<sQ.front()<<endl;
-    cout<<"   min: 3, "<<sQ.min()<<endl;
-    cout<<"   max: 8, "<<sQ.max()<<endl;
+    cout<<" front: 8, "<<sQ.front()<<endl; // nums:  8 4 3
+    cout<<"   min: 3, "<<sQ.min()<<endl;   // smallest: 3
+    cout<<"   max: 8, "<<sQ.max()<<endl;   // largest: 8 4 3
     sQ.pop();
     cout<<"Popped 8"<<endl;
     cout<<" Expected, Actual"<<endl;
-    cout<<" front: 4, "<<sQ.front()<<endl;
-    cout<<"   min: 3, "<<sQ.min()<<endl;
-    cout<<"   max: 4, "<<sQ.max()<<endl;
+    cout<<" front: 4, "<<sQ.front()<<endl; // nums:  4 3
+    cout<<"   min: 3, "<<sQ.min()<<endl;   // smallest: 3
+    cout<<"   max: 4, "<<sQ.max()<<endl;   // largest: 4 3
     cout<<"Print rest of the queue: ";
     print_queue(sQ);
     return 0;
