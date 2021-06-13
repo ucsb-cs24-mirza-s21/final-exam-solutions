@@ -8,13 +8,13 @@ using namespace std;
 class smartQueue{
 private:
     queue<int> nums;
-    list<int> smallest; // list can be replaced by deque with no additional modifications
-    list<int> largest; // list can be replaced by deque with no additional modifications
+    list<int> smallest; // Keep track of minimums, list can be replaced by deque with no additional modifications
+    list<int> largest; // Keep track of maximums, list can be replaced by deque with no additional modifications
 public:
     void push(int num)
     {
         nums.push(num);
-        while(!smallest.empty() && num<smallest.back())
+        while(!smallest.empty() && num < smallest.back()) // remove all numbers that are bigger than the new number
         {
             smallest.pop_back();  //pop off numbers until it's not smaller than the next number
             // No numbers that are popped from the main queue will ever be the min of the queue
@@ -38,11 +38,11 @@ public:
         int temp = nums.front();
         nums.pop();
      
-        if(!smallest.empty() && temp == smallest.front())
+        if(temp == smallest.front())
         {
             smallest.pop_front();
         }
-        if(!largest.empty() && temp == largest.front())
+        if(temp == largest.front())
         {
             largest.pop_front();
         }
@@ -82,39 +82,39 @@ int main() {
     cout<<"Push 3:"<<endl;
     cout<<" Expected, Actual"<<endl;
     cout<<" front: 3, "<<sQ.front()<<endl;
-    cout<<"   min: 3, "<<sQ.min()<<endl;
-    cout<<"   max: 3, "<<sQ.max()<<endl;
+    cout<<"   min: 3, "<<sQ.min()<<endl; // smallest: 3
+    cout<<"   max: 3, "<<sQ.max()<<endl; // largest: 3
    
     sQ.push(7);
     cout<<"Push 7"<<endl;
      cout<<" Expected, Actual"<<endl;
     cout<<" front: 3, "<<sQ.front()<<endl;
-    cout<<"   min: 3, "<<sQ.min()<<endl;
-    cout<<"   max: 7, "<<sQ.max()<<endl;
+    cout<<"   min: 3, "<<sQ.min()<<endl; // smallest: 3 7
+    cout<<"   max: 7, "<<sQ.max()<<endl; // largest: 7
     sQ.push(2);
     cout<<"Push 2"<<endl;
     cout<<" Expected, Actual"<<endl;
     cout<<" front: 3, "<<sQ.front()<<endl;
-    cout<<"   min: 2, "<<sQ.min()<<endl;
-    cout<<"   max: 7, "<<sQ.max()<<endl;
+    cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2
+    cout<<"   max: 7, "<<sQ.max()<<endl; // largest: 7 2
     sQ.push(9);
     cout<<"Push 9"<<endl;
     cout<<" Expected, Actual"<<endl;
     cout<<"front: 3, "<<sQ.front()<<endl;;
-    cout<<"  min: 2, "<<sQ.min()<<endl;
-    cout<<"  max: 9, "<<sQ.max()<<endl;
+    cout<<"  min: 2, "<<sQ.min()<<endl; // smallest: 2 9
+    cout<<"  max: 9, "<<sQ.max()<<endl; // largest: 9
     sQ.push(8);
     cout<<"Push 8"<<endl;
     cout<<" Expected, Actual"<<endl;
     cout<<" front: 3, "<<sQ.front()<<endl;
-    cout<<"   min: 2, "<<sQ.min()<<endl;
-    cout<<"   max: 9, "<<sQ.max()<<endl;
+    cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2 8
+    cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8
     sQ.push(4);
     cout<<"Push 4"<<endl;
     cout<<" Expected, Actual"<<endl;
     cout<<" front: 3, "<<sQ.front()<<endl;
-    cout<<"   min: 2, "<<sQ.min()<<endl;
-    cout<<"   max: 9, "<<sQ.max()<<endl;
+    cout<<"   min: 2, "<<sQ.min()<<endl; // smallest: 2 4
+    cout<<"   max: 9, "<<sQ.max()<<endl; // largest: 9 8 4
 
     cout<<endl<<"Start popping"<<endl<<endl;
     sQ.pop();
